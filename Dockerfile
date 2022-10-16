@@ -1,0 +1,9 @@
+FROM python:3.6
+LABEL maintainer "Timothy Ko <tk2@illinois.edu>"
+RUN apt-get update
+RUN mkdir /application
+WORKDIR /application
+COPY . /application
+RUN pip install --no-cache-dir -r requirements.txt
+ENV FLASK_ENV="docker"
+EXPOSE 5000
