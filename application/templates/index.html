@@ -26,7 +26,96 @@
 
     <!-- Main content -->
     <section class="content">
+
       <div class="container-fluid">
+        
+        
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card">
+              
+              <!-- /.card-header -->
+              <div class="card-body">
+                <h1> Aniversariantes do Mês ({{ month[birth_user[0][2] | int] }}) </h1>
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th style="width: 10px">Dia</th>
+                      <th>Nome</th>
+                      
+                    </tr>
+                  </thead>
+                  <tbody> 
+                    {% for user_happy in birth_user %}
+                    <tr>
+                      <td>{{ user_happy[1] | int }}</td>
+                      <td>{{ user_happy[0] }}
+                        {% if user_happy[1] == user_happy[3]%}
+                           <span class="text-danger bg-danger pl-4 pr-2 float-right"> Parabéns </span>
+                        {% endif %}
+
+                      </td>
+                      
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+              
+            </div>
+            <!-- /.card -->
+
+            </div>
+            <!-- /.card -->
+          
+          <!-- /.col -->
+
+          <div class="col-md-6">
+            <div class="card">
+              
+              <!-- /.card-header -->
+              <div class="card-body">
+                <h1> Relatório de Usuários </h1>
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th style="width: 10px">Id</th>
+                      <th>Name</th>
+                      <th>Birth</th>
+                      <th style="width: 40px">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody> 
+                    {% for us in user %}
+                    <tr>
+                      <td>{{ us[0] }}</td>
+                      <td>{{ us[1] }}</td>
+                      <td>
+                        {{ us[2]  }}
+                      </td>
+                      <td>{% if us[3]==true %}
+                              Ativado
+                          {% else %}
+                              Desativado
+                          {% endif %}
+                      </td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+              
+            </div>
+            <!-- /.card -->
+
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          
+        </div>
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
